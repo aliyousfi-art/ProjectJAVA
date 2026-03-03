@@ -1,4 +1,4 @@
-package fr.campus.dungecrawler;
+package equipment;
 
 public class DefensiveEquipment {
 

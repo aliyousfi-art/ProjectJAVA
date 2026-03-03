@@ -1,4 +1,6 @@
-package fr.campus.dungecrawler;
+package character;
+
+import equipment.OffensiveEquipment;
 
 public class Player {
 
@@ -45,9 +47,7 @@ public class Player {
     public void setAttackLevel(int attackLevel){
         this.attackLevel = attackLevel;
     }
-    public void setOffensiveEquipment(OffensiveEquipment offensiveEquipment){
-        this.offensiveEquipment = offensiveEquipment;
-    }
+    public void setOffensiveEquipment(OffensiveEquipment offensiveEquipment){ this.offensiveEquipment = offensiveEquipment;}
 
     public String toString(){
         return "| Type: " + type + "| Name: " + name + "| LifeLevel: " + lifeLevel + "| AttackLevel: " + attackLevel + "| OffensiveEquipment: " + offensiveEquipment;
