@@ -2,7 +2,7 @@ package character;
 
 import equipment.OffensiveEquipment;
 
-public class Player {
+public abstract class Player {
 
     private String type ;
     private String name ;

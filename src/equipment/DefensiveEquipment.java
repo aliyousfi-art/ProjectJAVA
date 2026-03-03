@@ -1,6 +1,6 @@
 package equipment;
 
-public class DefensiveEquipment {
+public abstract class DefensiveEquipment {
 
     private String type ;
     private int LevelDef;

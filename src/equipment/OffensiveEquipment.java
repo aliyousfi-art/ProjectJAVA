@@ -1,6 +1,6 @@
 package equipment;
 
-public class OffensiveEquipment {
+public abstract class OffensiveEquipment {
 
     private String name;
     private String type;
