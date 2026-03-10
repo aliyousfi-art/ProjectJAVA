@@ -3,40 +3,31 @@ package equipment;
 public abstract class OffensiveEquipment {
 
     private String name;
-    private String type;
-    private int levelAttack;
+    private int attackLevel;
 
-    public OffensiveEquipment(String type, String name, int levelAttack) {
-        this.type = type;
+    public OffensiveEquipment(String name, int attackLevel) {
         this.name = name;
-        this.levelAttack = levelAttack;
+        this.attackLevel = attackLevel;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public int getLevelAttack() {
-        return levelAttack;
+    public int getAttackLevel() {
+        return attackLevel;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setAttackLevel(int attackLevel) {
+        this.attackLevel = attackLevel;
     }
 
-    public void setLevelAttack(int levelAttack) {
-        this.levelAttack = levelAttack;
-    }
-
+    @Override
     public String toString() {
-        return "| Name: " + name + " | Type: " + type + " | LevelAttack: " + levelAttack;
+        return name + " (attaque : " + attackLevel + ")";
     }
 }

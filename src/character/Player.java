@@ -1,57 +1,67 @@
 package character;
 
+import equipment.DefensiveEquipment;
 import equipment.OffensiveEquipment;
 
 public abstract class Player {
 
-    private String type ;
-    private String name ;
-    private int lifeLevel;
-    private int attackLevel;
+    private String name;
+    private int lifePoints;
+    private int strength;
     private OffensiveEquipment offensiveEquipment;
+    private DefensiveEquipment defensiveEquipment;
 
-
-    public Player(String type, String name, int lifeLevel, int attackLevel, OffensiveEquipment offensiveEquipment){
-        this.type = type;
+    public Player(String name, int lifePoints, int strength) {
         this.name = name;
-        this.lifeLevel = lifeLevel;
-        this.attackLevel = attackLevel;
-        this.offensiveEquipment = offensiveEquipment;
+        this.lifePoints = lifePoints;
+        this.strength = strength;
     }
 
-    public String getType(){
-        return type;
-    }
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public int getLifeLevel(){
-        return lifeLevel;
+
+    public int getLifePoints() {
+        return lifePoints;
     }
-    public int getAttackLevel(){
-        return attackLevel;
+
+    public int getStrength() {
+        return strength;
     }
-    public OffensiveEquipment getOffensiveEquipment(){
+
+    public OffensiveEquipment getOffensiveEquipment() {
         return offensiveEquipment;
     }
 
-    public void setType (String type){
-        this.type = type;
+    public DefensiveEquipment getDefensiveEquipment() {
+        return defensiveEquipment;
     }
-    public void setName (String name){
+
+    public void setName(String name) {
         this.name = name;
     }
-    public void setLifeLevel(int lifeLevel){
-        this.lifeLevel = lifeLevel;
-    }
-    public void setAttackLevel(int attackLevel){
-        this.attackLevel = attackLevel;
-    }
-    public void setOffensiveEquipment(OffensiveEquipment offensiveEquipment){ this.offensiveEquipment = offensiveEquipment;}
 
-    public String toString(){
-        return "| Type: " + type + "| Name: " + name + "| LifeLevel: " + lifeLevel + "| AttackLevel: " + attackLevel + "| OffensiveEquipment: " + offensiveEquipment;
+    public void setLifePoints(int lifePoints) {
+        this.lifePoints = lifePoints;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public void setOffensiveEquipment(OffensiveEquipment offensiveEquipment) {
+        this.offensiveEquipment = offensiveEquipment;
+    }
+
+    public void setDefensiveEquipment(DefensiveEquipment defensiveEquipment) {
+        this.defensiveEquipment = defensiveEquipment;
+    }
+
+    @Override
+    public String toString() {
+        return "Personnage : " + name +
+                ", vie : " + lifePoints +
+                ", force : " + strength;
     }
 }
-
 

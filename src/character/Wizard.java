@@ -1,9 +1,16 @@
 package character;
 
-import equipment.OffensiveEquipment;
+import equipment.Spell;
 
-public class Wizard extends Player{
-    public Wizard(String type, String name, int lifeLevel, int attackLevel, OffensiveEquipment offensiveEquipment){
-        super(type, name, lifeLevel, attackLevel,offensiveEquipment);
+public class Wizard extends Player {
+
+    public Wizard(String name) {
+        super(name, 6, 15);
+        setOffensiveEquipment(new Spell("Boule de feu", 7));
+    }
+
+    @Override
+    public String toString() {
+        return "Wizard - " + super.toString();
     }
 }

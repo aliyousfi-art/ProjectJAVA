@@ -2,37 +2,32 @@ package equipment;
 
 public abstract class DefensiveEquipment {
 
-    private String type ;
-    private int LevelDef;
     private String name;
+    private int defenseLevel;
 
-    DefensiveEquipment(String type, int LevelDef, String name){
-        this.type = type;
-        this.LevelDef = LevelDef;
+    public DefensiveEquipment(String name, int defenseLevel) {
         this.name = name;
+        this.defenseLevel = defenseLevel;
     }
 
-    public String getType(){
-        return type;
-    }
-    public int getLevelDef(){
-        return LevelDef;
-    }
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setType(String type){
-        this.type = type;
+    public int getDefenseLevel() {
+        return defenseLevel;
     }
-    public void setLevelDef(int LevelDef){
-        this.LevelDef = LevelDef;
-    }
-    public void setName(String name){
+
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String toString(){
-        return "| Type: " + type + "| LevelDef: " + LevelDef + "| Name : " + name ;
+    public void setDefenseLevel(int defenseLevel) {
+        this.defenseLevel = defenseLevel;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (défense : " + defenseLevel + ")";
     }
 }

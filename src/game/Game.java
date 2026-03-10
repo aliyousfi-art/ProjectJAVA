@@ -1,88 +1,41 @@
 package game;
 
 import character.Player;
-import equipment.OffensiveEquipment;
 import setting.Menu;
-
-import java.util.Scanner;
 
 public class Game {
 
+    private Player player;
+    private int playerPosition;
+    private Dice dice;
+    private Board board;
+    private Menu menu;
+
+    public Game(Menu menu) {
+        this.menu = menu;
+        this.dice = new Dice();
+        this.board = new Board();
+        this.playerPosition = 0;
+    }
+
     public void startGame() {
 
-        Menu menu = new Menu();
-        Scanner scanner = new Scanner(System.in);
+        player = menu.createCharacter();
+        menu.displayCharacter(player);
 
-        int lifeLevel = 0;
-        int attackLevel = 0;
+        while (playerPosition < board.size() - 1) {
 
-        int choice = menu.showMenu();
+            int result = dice.roll();
+            playerPosition += result;
 
-        if (choice == 1) {
-
-            scanner.nextLine();
-
-            System.out.println("Choisissez le type du personnage (Warrior ou Wizard) :");
-            String type = scanner.nextLine();
-
-            System.out.println("Quel est le nom du personnage ?");
-            String name = scanner.nextLine();
-
-            OffensiveEquipment equipment;
-
-            if (type.equals("Warrior")) {
-
-                lifeLevel = 10;
-                attackLevel = 10;
-                equipment = new OffensiveEquipment("Weapon", "Sword", 10);
-
-            } else if (type.equals("Wizard")) {
-
-                lifeLevel = 6;
-                attackLevel = 15;
-                equipment = new OffensiveEquipment("Spell", "Fireball", 15);
-
-            } else {
-
-                System.out.println("Type invalide !");
-                return;
-
+            if (playerPosition >= board.size()) {
+                playerPosition = board.size() - 1;
             }
 
-            Player player = new Player(type, name, lifeLevel, attackLevel, equipment);
-
-            System.out.println("Personnage créé :");
-            System.out.println(player);
-
-            // Début de la partie
-            Board board = new Board();
-            Dice dice = new Dice();
-
-            int position = 1;
-
-            System.out.println("La partie commence !");
-
-            while (position < board.getSize()) {
-
-                int diceResult = dice.rollDice();
-                position += diceResult;
-
-                if (position > board.getSize()) {
-                    position = board.getSize();
-                }
-
-                System.out.println("Vous avez fait : " + diceResult);
-                System.out.println("Vous êtes sur la case : " + position + " / " + board.getSize());
-            }
-
-            System.out.println("Bravo ! Vous avez terminé le plateau !");
+            System.out.println("Position : " + playerPosition + "/ 64");
+            System.out.println(board.getCell(playerPosition - 1));
         }
 
-        else if (choice == 2) {
-
-            System.out.println("Quitter le jeu.");
-
-        }
-
+        System.out.println("Fin du jeu !");
     }
 }

@@ -1,17 +1,39 @@
 package setting;
 
+import character.Player;
+import character.Warrior;
+import character.Wizard;
+
 import java.util.Scanner;
 
 public class Menu {
 
-    Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
 
-    public int showMenu() {
-        System.out.println("==MENU==");
-        System.out.println("1 - Nouveau Personnage");
-        System.out.println("2 - Quitter le jeu");
+    public Menu() {
+        scanner = new Scanner(System.in);
+    }
 
-        int choice = scanner.nextInt();
-        return choice;
+    public Player createCharacter() {
+
+        System.out.println("Créer votre personnage");
+        System.out.println("1 - Warrior");
+        System.out.println("2 - Wizard");
+
+        int choice = Integer.parseInt(scanner.nextLine());
+
+
+        System.out.println("Nom du personnage : ");
+        String name = scanner.nextLine();
+
+        if (choice == 1) {
+            return new Warrior(name);
+        } else {
+            return new Wizard(name);
+        }
+    }
+
+    public void displayCharacter(Player player) {
+        System.out.println(player);
     }
 }
